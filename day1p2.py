@@ -1,13 +1,4 @@
-def get_data() -> list | None:
-    data = []
-    try:
-        with open("day1.input", "r") as file:
-            for line in file:
-                data.append(int(line.rstrip("\n")))
-    except IOError:
-        print("input not found")
-
-    return data
+from utils import get_puzzle_input
 
 
 def count_depth_increase(data: list) -> int:
@@ -30,6 +21,5 @@ def count_depth_increase(data: list) -> int:
 
 
 if __name__ == "__main__":
-    if puzzle_input := get_data():
+    if puzzle_input := get_puzzle_input("day1.input", return_type=int):
         print(count_depth_increase(puzzle_input))
-
