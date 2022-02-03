@@ -38,10 +38,10 @@ from utils import get_puzzle_input
 # }}}
 def power_consumption(binaries: list[str]) -> int:
     votes = {}
-    first, *binaries = binaries
+    binary_size = len(binaries[0])
 
     # populate votes dict based on the size of the binary number
-    for i, _ in enumerate(first):
+    for i in range(binary_size):
         votes[i] = {"0": 0, "1": 0}
 
     # conduct votes according with repeated bits in binaries
