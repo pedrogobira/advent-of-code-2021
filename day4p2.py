@@ -66,11 +66,18 @@ class Bingo:
                 lines.append(line)
 
     def _bingo(self) -> tuple[Board, str] | None:
+        winners = []
+        winners_last_number = []
+
         for number in self._drawn_numbers:
             for board in self._boards:
-                board.mark_number(number)
-                if board.is_winner():
-                    return (board, number)
+                if board not in winners:
+                    board.mark_number(number)
+                    if board.is_winner():
+                        winners.append(board)
+                        winners_last_number.append(number)
+
+        return (winners.pop(), winners_last_number.pop())
 
     def _calculate_score(self, result: tuple[Board, str] | None) -> int:
         if result is None:
@@ -93,7 +100,7 @@ if __name__ == "__main__":
     #     "",
     #     "22 13 17 11 0",
     #     "8 2 23 4 24",
-    #     "21 9 1 16 7",
+    #     "21 9 14 16 7",
     #     "6 10 3 18 5",
     #     "1 12 20 15 19",
     #     "",
