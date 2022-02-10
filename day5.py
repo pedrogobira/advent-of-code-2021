@@ -18,24 +18,23 @@ def parse_input(puzzle_input: list[str]) -> list[list[tuple]]:
 
 def count_overlaps(data: list[list[tuple]]) -> int:
     count = 0
-    coordinate_pairs = []
+    coordinates = []
 
     for coordinate in data:
         coordinate = sorted(coordinate)
         if coordinate[0][0] == coordinate[1][0] or coordinate[0][1] == coordinate[1][1]:
             horizontal_range = range(coordinate[0][0], coordinate[1][0] + 1)
             vertical_range = range(coordinate[0][1], coordinate[1][1] + 1)
-            for x in horizontal_range:
-                for y in vertical_range:
-                    coordinate_pairs.append((x,y))
+            coordinates += [(x, y) for x in horizontal_range for y in vertical_range]
 
-    counter = Counter(coordinate_pairs)
+    counter = Counter(coordinates)
     count = sum(1 for value in counter.values() if value > 1)
 
     return count
 
 
 if __name__ == "__main__":
+    # test {{{
     # puzzle_input = [
     #     "0,9 -> 5,9",
     #     "8,0 -> 0,8",
@@ -51,7 +50,10 @@ if __name__ == "__main__":
     #
     # data = parse_input(puzzle_input)
     # print(count_overlaps(data))
+    # }}}
 
+    # main {{{
     if puzzle_input := get_puzzle_input("day5.input"):
         data = parse_input(puzzle_input)
         print(count_overlaps(data))
+    # }}}
