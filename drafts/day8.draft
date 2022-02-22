@@ -1,0 +1,46 @@
+output -> cdfeb fcadb cdfeb cdbaf
+
+8 = acedgfb
+7 = dab
+4 = eafb
+1 = ab
+
+
+grupo de 5:
+cdfbe gcdfa fbcad
+OU
+bcdef acdfg abcdf
+OU
+5 2 3
+Tem TE = 5
+Tem ultimo desconhecido = 2
+Resto 3
+
+grupo de 6:
+cefabd cdfgeb cagedb
+OU
+abcdef bcdefg abcdeg
+OU
+9 6 0
+Não tem inferior esquerdo = 9
+Não tem do meio = 0
+Resto 6
+
+---
+
+usar 1 e 7 para descobrir o segmento superior
+
+remover digitos do 4 e do 7 do 8 para descobrir os possíveis digitos para segmento inferior e inferior esquerdo
+
+usar inferior e inferior esquerdo para encontrar o 9 por negação
+
+usar o segmento superior com segmentos do 4 no 9 para descobrir o segmento inferior (c) e depois o inferior esquerdo
+
+usar inferior e inferior esquerdo para encontrar o 2
+
+Remover os segmentos do 2 e 1 do 8 para reaver o segmento do TE (topo esquerdo)
+
+Remover os segmentos armazenados do 8 para reaver o segmento do meio.
+
+conseguir o resto dos números
+
