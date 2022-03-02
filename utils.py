@@ -1,4 +1,4 @@
-def get_puzzle_input(file_name: str, return_type: type = str) -> list | None:
+def get_puzzle_input(file_name: str, return_type: type = str):
     data = []
     try:
         with open(f"inputs/{file_name}", "r") as file:
